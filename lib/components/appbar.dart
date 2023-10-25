@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:zin/screen/blog/blog_screen.dart';
 import 'package:zin/screen/cart/cart_screen.dart';
+import 'package:zin/screen/login_screen.dart';
 import 'package:zin/screen/notification/notification_screen.dart';
 import 'package:zin/screen/setting/change_password/change_password.dart';
 import 'package:zin/screen/deposit_and_withdrawal_history/history_dw.dart';
@@ -31,10 +32,16 @@ AppBar itemappbar({required GlobalKey<ScaffoldState> key}) {
         child: SvgPicture.asset("assets/icons/menu.svg"),
       ),
     ),
-    title: Container(
-        width: 80,
-        // color: Colors.red,
-        child: SvgPicture.asset("assets/icons/zinappbar.svg")),
+    title: Row(
+      mainAxisAlignment:
+          MainAxisAlignment.center, // Để căn giữa theo chiều ngang
+      children: <Widget>[
+        Container(
+          width: 80,
+          child: Image.asset("assets/images/zinappbar.png"),
+        ),
+      ],
+    ),
     actions: [
       InkWell(
         onTap: () {
@@ -119,154 +126,158 @@ Drawer itemEndDrawer({required BuildContext context}) {
   return Drawer(
       backgroundColor: Color(0xFFFFFFFF),
       child: Padding(
-    padding: const EdgeInsets.only(left: 12.0, right: 12),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: 54,
-        ),
-        Row(
+        padding: const EdgeInsets.only(left: 12.0, right: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Container(
-                // decoration: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(30),
-                color: Colors.red,
-                // ),
-                height: 60,
-                width: 60,
+            SizedBox(
+              height: 54,
+            ),
+            Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Container(
+                    // decoration: BoxDecoration(
+                    //   borderRadius: BorderRadius.circular(30),
+                    color: Colors.red,
+                    // ),
+                    height: 60,
+                    width: 60,
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    title: Text(
+                      "NGUYỄN VĂN A",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
+                    subtitle: Text(
+                      "Affiliate",
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFFA4A4A4)),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Divider(color: Color(0xFFE7E7E7)),
+            InkWell(
+              onTap: () {
+                Get.off(InformationCustomerScreen());
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 6, bottom: 6),
+                child: Text(
+                  "Thông tin cá nhân",
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             ),
-            Expanded(
-              child: ListTile(
-                title: Text(
-                  "NGUYỄN VĂN A",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                ),
-                subtitle: Text(
-                  "Affiliate",
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFFA4A4A4)),
+            Divider(color: Color(0xFFE7E7E7)),
+            InkWell(
+              onTap: () {
+                Get.off(OverviewReportScreen());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16, top: 16),
+                child: Text(
+                  "Báo cáo tổng quan",
+                  style: TextStyle(fontWeight: FontWeight.w500),
                 ),
               ),
-            )
+            ),
+            InkWell(
+              onTap: () {
+                Get.off(OrderHistoryScreen());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Lịch sử đơn hàng",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            InkWell(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Đội nhóm",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.off(WalletManagementScreen());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Quản lý ví",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.off(DepositAndWithdrawalHistory());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Lịch sử nạp, rút",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.off(NotificationScreen());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Thông báo",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            Divider(color: Color(0xFFE7E7E7)),
+            InkWell(
+              onTap: () {
+                Get.off(SettingScreen());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Cài đặt",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.off(LoginScreen());
+              },
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: Text(
+                  "Đăng xuất",
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
           ],
         ),
-       Divider(color: Color(0xFFE7E7E7)),
-        InkWell(
-          onTap: () {
-            Get.off(InformationCustomerScreen());
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(top:6,bottom: 6),
-            child: Text(
-              "Thông tin cá nhân",
-              style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600),
-            ),
-          ),
-        ),
-        Divider(color: Color(0xFFE7E7E7)),
-        InkWell(
-          onTap: () {
-            Get.off(OverviewReportScreen());
-          },
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16, top: 16),
-            child: Text(
-              "Báo cáo tổng quan",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            Get.off(OrderHistoryScreen());
-          },
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Lịch sử đơn hàng",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        InkWell(
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Đội nhóm",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            Get.off(WalletManagementScreen());
-          },
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Quản lý ví",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            Get.off(DepositAndWithdrawalHistory());
-          },
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Lịch sử nạp, rút",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            Get.off(NotificationScreen());
-          },
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Thông báo",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        Divider(color: Color(0xFFE7E7E7)),
-        InkWell(
-          onTap: () {
-            Get.off(SettingScreen());
-          },
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Cài đặt",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        InkWell(
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 16),
-            child: Text(
-              "Đăng xuất",
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-      ],
-    ),
-  )
+      )
       //   ListView(
       //     // Important: Remove any padding from the ListView.
       //     padding: EdgeInsets.zero,

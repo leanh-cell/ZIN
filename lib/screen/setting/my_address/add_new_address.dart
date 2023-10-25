@@ -19,28 +19,32 @@ class _AddnewAddressScreenState extends State<AddnewAddressScreen> {
     return Scaffold(
         key: _scaffoldKey,
         backgroundColor: Color(0xFFF5F5F5),
-        // appBar: itemappbar(key: _scaffoldKey),
+        appBar: AppBar(title: Text(
+                  "THÊM ĐỊA CHỈ MỚI",
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                )),
         // drawer: itemDrawer(),
         // endDrawer: itemEndDrawer(context: context),
         body: SingleChildScrollView(
           padding: EdgeInsets.only(
-              top: AppBar().preferredSize.height, left: 16, right: 16),
+               left: 16, right: 16,bottom: 70),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Row(
-              children: [
-                Expanded(
-                    child: Text(
-                  "THÊM ĐỊA CHỈ MỚI",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                )),
-                InkWell(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: SvgPicture.asset("assets/icons/cancel.svg"))
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //         child: Text(
+            //       "THÊM ĐỊA CHỈ MỚI",
+            //       style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+            //     )),
+            //     InkWell(
+            //         onTap: () {
+            //           Get.back();
+            //         },
+            //         child: SvgPicture.asset("assets/icons/cancel.svg"))
+            //   ],
+            // ),
+           
             SizedBox(
               height: 20,
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:zin/screen/product_detail_screen.dart';
+import 'package:zin/screen/product/product_detail_screen.dart';
 
 class ProductItem extends StatefulWidget {
    ProductItem({
