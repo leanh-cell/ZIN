@@ -50,10 +50,13 @@ class _DepositAndWithdrawalHistoryState
 
   Widget historyDW() {
     return Container(
-      padding: EdgeInsets.only(left: 16, top: 16, right: 16),
+      // padding: EdgeInsets.only(left: 16, top: 16, right: 16),
       color: Colors.white,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text("LỊCH SỬ NẠP RÚT"),
+        Padding(
+         padding: EdgeInsets.only(left: 16, top: 16, right: 16),
+          child: Text("LỊCH SỬ NẠP RÚT"),
+        ),
         SizedBox(
           height: 20,
         ),
@@ -86,6 +89,7 @@ class _DepositAndWithdrawalHistoryState
 
   Widget itemHistory() {
     return Container(
+      padding: EdgeInsets.only(left: 16, top: 16, right: 16),
       child: Column(children: [
         Row(
           children: [

@@ -65,12 +65,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 SizedBox(
                   width: 8,
                 ),
-                Text(
-                  widget.title ?? "",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFFCF5763)),
+                Expanded(
+                  child: Text(
+                    widget.title ?? "",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFFCF5763),),
+                        maxLines: 1,overflow: TextOverflow.ellipsis,
+                  ),
                 )
               ],
             ),
@@ -126,7 +129,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: Text(
-              "Pinkflash Son Tint PINKFLASH Fall Into Velv et lightweight waterproof 10g",
+              widget.title ?? "",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -448,7 +451,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ]),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.only(left: 16, bottom: 22, right: 16),
+        color: Colors.white,
+        padding: EdgeInsets.only(left: 16, bottom: 22, right: 16,top: 10),
         child: Row(
           children: [
             InkWell(

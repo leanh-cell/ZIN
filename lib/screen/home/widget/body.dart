@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:zin/screen/home/widget/comment_customer.dart';
 import 'package:zin/screen/home/widget/latest_new.dart';
+import 'package:zin/screen/product/product_item.dart';
 
 class WidgetBody extends StatefulWidget {
   const WidgetBody({super.key});
@@ -43,10 +44,7 @@ class _WidgetBodyState extends State<WidgetBody> {
             ),
           ),
           ...List.generate(4, (index) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
-              child: allProduct(),
-            );
+            return ProductItem(title: "Kem chống nắng Image 32g version New 20djdjdjddddddddddddddeeeeeeeeeee");
           }),
           SizedBox(
             height: 12,
@@ -130,7 +128,7 @@ class _WidgetBodyState extends State<WidgetBody> {
 
   Widget topPeople() {
     return Container(
-      height: Get.height /2 +30,
+      height: Get.height /2 + 30,
       padding: EdgeInsets.only(left: 16, right: 16),
       child: Column(
         children: [

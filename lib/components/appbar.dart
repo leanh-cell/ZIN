@@ -17,6 +17,8 @@ import 'package:zin/screen/wallet_management/wallet_management_screen.dart';
 
 AppBar itemappbar({required GlobalKey<ScaffoldState> key}) {
   return AppBar(
+    elevation: 1,
+    shadowColor:Colors.black.withOpacity(0.4),
     leading: InkWell(
       onTap: () {
         key.currentState!.openDrawer();

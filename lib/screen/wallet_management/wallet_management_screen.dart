@@ -89,7 +89,7 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
           ),
         ),
         Expanded(
-          flex: 6,
+          flex: 9,
           child: TabBarView(
             controller: _tabController,
             children: [

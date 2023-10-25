@@ -20,7 +20,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Color(0xFFFBF4F5),
+      backgroundColor: Color(0xFFFFFFFF),
       appBar: itemappbar(key: _scaffoldKey),
       drawer: itemDrawer(),
       endDrawer: itemEndDrawer(context: context),
