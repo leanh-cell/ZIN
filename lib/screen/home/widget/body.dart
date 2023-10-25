@@ -128,7 +128,7 @@ class _WidgetBodyState extends State<WidgetBody> {
 
   Widget topPeople() {
     return Container(
-      height: Get.height /2 + 30,
+      margin: EdgeInsets.only(bottom: 30),
       padding: EdgeInsets.only(left: 16, right: 16),
       child: Column(
         children: [
