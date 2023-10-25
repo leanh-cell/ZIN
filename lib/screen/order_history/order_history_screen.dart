@@ -41,15 +41,15 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      backgroundColor: Color(0xFFF5F5F5),
-      appBar: itemappbar(key: _scaffoldKey),
-      drawer: itemDrawer(),
-      endDrawer: itemEndDrawer(context: context),
-      body: SingleChildScrollView(
-        child: orderHistory(),
-      ),
-    );
+        key: _scaffoldKey,
+        backgroundColor: Color(0xFFF5F5F5),
+        appBar: itemappbar(key: _scaffoldKey),
+        drawer: itemDrawer(),
+        endDrawer: itemEndDrawer(context: context),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: orderHistory(),
+        ));
   }
 
   Widget orderHistory() {
@@ -86,76 +86,235 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen>
         SizedBox(
           height: 8,
         ),
-      //  tabBarItem()
-        //   Expanded(
-        //     child:
-        // TabBarView(
-        //       controller: _tabController,
-        //       children: [
-        //         Expanded(
-        //           child: Container(
-        //             width: 200,
-        //             height: 100,
-        //             color: Colors.amber,
-        //           ),
-        //         ),
-        //       Container(
-        //           width: 200,
-        //           height: 100,
-        //           color: Colors.amber,
-        //         ),
-        //       Container(
-        //           width: 200,
-        //           height: 100,
-        //           color: Colors.amber,
-        //         ),
-        //       Container(
-        //           width: 200,
-        //           height: 100,
-        //           color: Colors.amber,
-        //         ),
-        //       ],
-        //     ),
-        //   ),
+        Expanded(
+          child: ListView(physics: NeverScrollableScrollPhysics(), children: [
+            TabBar(
+              isScrollable: true,
+              controller: _tabController,
+              tabs: _tabs,
+              labelColor: Theme.of(context).primaryColor,
+              indicatorColor: Theme.of(context).primaryColor,
+              unselectedLabelColor: _unselectedColor,
+            ),
+          ]),
+        ),
+        Expanded(
+          flex: 9,
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              pageProductAll(),
+              Center(child: Text('Màn hình 2')),
+              Center(child: Text('Màn hình 3')),
+              Center(child: Text('Màn hình 4')),
+              // Center(child: Text('Màn hình 5')),
+              // Center(child: Text('Màn hình 6')),
+            ],
+          ),
+        )
       ]),
     );
   }
 
-  Widget tabBarItem() {
+  Widget pageProductAll() {
     return Container(
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView(children: [
-                  TabBar(
-                    isScrollable: true,
-                    controller: _tabController,
-                    tabs: _tabs,
-                    labelColor: Theme.of(context).primaryColor,
-                    indicatorColor: Theme.of(context).primaryColor,
-                    unselectedLabelColor: _unselectedColor,
+            TextField(
+              decoration: InputDecoration(
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  border: OutlineInputBorder(
+                    borderRadius:
+                        BorderRadius.circular(10.0), // Độ cong của góc
                   ),
+                  prefixIcon: Container(
+                      width: 12,
+                      height: 12,
+                      padding: EdgeInsets.all(13),
+                      child: SvgPicture.asset(
+                        "assets/icons/search.svg",
+                        color: Colors.grey,
+                        width: 12,
+                        height: 12,
+                        fit: BoxFit.cover,
+                      )),
+                  hintText: 'Tìm kiếm tên đơn hàng, mã đơn hàng,...',
+                  hintStyle:
+                      TextStyle(color: Color(0xFF909090)) // Văn bản gợi ý
+                  ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(children: [
+                  itemProductSuccess(),
+                  itemProductSuccess(),
+                  itemProductSuccess(),
+                  itemProductSuccess()
                 ]),
               ),
             ),
-            Expanded(
-          // flex: 2,
-          child: TabBarView(
-            controller: _tabController,
-            children: [
-              Center(child: Text('Màn hình 1')),
-            Center(child: Text('Màn hình 2')),
-            Center(child: Text('Màn hình 3')),
-             Center(child: Text('Màn hình 4')),
-            // Center(child: Text('Màn hình 5')),
-            // Center(child: Text('Màn hình 6')),
-          ],),
-        )
           ]),
+    );
+  }
+
+  Widget itemProductSuccess() {
+    return Container(
+      child: Column(children: [
+        Row(
+          children: [
+            Container(
+              width: 77,
+              height: 77,
+              margin: EdgeInsets.only(right: 16),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color(0xFFCF5763)),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "[NEW 26-30]",
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        "[WINERY EDITION]",
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      Expanded(
+                        child: Text(
+                          "Sonnncncncnccnc",
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w500),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "1.899.000" + "đ",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                      Expanded(
+                          child: Text(
+                        "Số lượng: " + "2",
+                        style: TextStyle(fontSize: 12),
+                      ))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          "Đơn hàng đã được giao thành công",
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.green),
+                        ),
+                      ),
+                      Container(
+                        width: 1,
+                        height: 17,
+                        margin: EdgeInsets.only(left: 8, right: 8),
+                        color: Colors.grey,
+                      ),
+                      Expanded(
+                          child: Text(
+                        "HOÀN THÀNH",
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Theme.of(context).primaryColor),
+                      ))
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Row(
+          children: [
+            Text(
+              "Thành tiền: ",
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
+            Text(
+              "1.899.000" + "đ",
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).primaryColor),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 17, top: 6, right: 17, bottom: 6),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Theme.of(context).primaryColor),
+              child: Text(
+                "Đánh giá",
+                style:
+                    TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 17, top: 6, right: 17, bottom: 6),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Theme.of(context).primaryColor),
+              ),
+              child: Text(
+                "Mua lại",
+                style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).primaryColor),
+              ),
+            ),
+          ],
+        ),
+        Divider(
+          height: 40,
+        )
+      ]),
     );
   }
 }
