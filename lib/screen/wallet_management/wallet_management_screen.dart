@@ -21,6 +21,12 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
   final _tabs = [
     Tab(
       child: Text(
+        "Danh sách ví",
+        style: TextStyle(fontSize: 16),
+      ),
+    ),
+    Tab(
+      child: Text(
         "Ví hoa hồng",
         style: TextStyle(fontSize: 16),
       ),
@@ -66,14 +72,43 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
 
   Widget WalletManagement() {
     return Container(
-      padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+      // padding: EdgeInsets.only(left: 16, right: 16, top: 16),
       color: Colors.white,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text("QUẢN LÝ VÍ"),
-        SizedBox(
-          height: 20,
+       Expanded(
+          child: ListView(
+            physics: NeverScrollableScrollPhysics(),
+            children:[ TabBar(
+              isScrollable: true,
+              controller: _tabController,
+              tabs: _tabs,
+              labelColor: Theme.of(context).primaryColor,
+              indicatorColor: Theme.of(context).primaryColor,
+              unselectedLabelColor: _unselectedColor,
+            ),]
+          ),
         ),
-        Container(
+        Expanded(
+          flex: 6,
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              walletList(),
+              pageRose(),
+              pageRose(),
+              pageRose(),
+            ],
+          ),
+        )
+      ]),
+    );
+  }
+
+Widget walletList(){
+  return Container(
+    padding: EdgeInsets.only(left: 16, right: 16),
+    child: Column(children: [
+       Container(
           padding: EdgeInsets.only(left: 20, top: 25, right: 20, bottom: 25),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
@@ -277,34 +312,14 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
             ],
           ),
         ),
-        Expanded(
-          child: TabBar(
-            isScrollable: false,
-            controller: _tabController,
-            tabs: _tabs,
-            labelColor: Theme.of(context).primaryColor,
-            indicatorColor: Theme.of(context).primaryColor,
-            unselectedLabelColor: _unselectedColor,
-          ),
-        ),
-        Expanded(
-          flex: 7,
-          child: TabBarView(
-            controller: _tabController,
-            children: [
-              pageRose(),
-              pageRose(),
-              pageRose(),
-            ],
-          ),
-        )
-      ]),
-    );
-  }
+        
+    ]),
+  );
+}
 
   Widget pageRose() {
     return Container(
-      margin: EdgeInsets.only(top: 30),
+      // margin: EdgeInsets.only(top: 30),
       child: SingleChildScrollView(
         padding: EdgeInsets.only(left: 16, right: 16),
         child: Column(children: [
@@ -365,27 +380,25 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
                 // flex: 2,
                 child: Container(
                   padding:
-                      EdgeInsets.only(left: 40, top: 10, bottom: 10, right: 18),
+                      EdgeInsets.only(top: 10, bottom: 10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: Color(0xFFD9D9D9))),
-                  child: Center(
-                    child: Row(children: [
-                      Text("Nguồn giao dịch"),
-                      SizedBox(
-                        width: 8,
+                  child: Row(children: [
+                    Expanded(child: Text("Nguồn giao dịch")),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: SvgPicture.asset(
+                            "assets/icons/arrow_downward.svg"),
                       ),
-                      SizedBox(
-                        width: 24,
-                        height: 24,
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: SvgPicture.asset(
-                              "assets/icons/arrow_downward.svg"),
-                        ),
-                      )
-                    ]),
-                  ),
+                    )
+                  ]),
                 ),
               ),
             ],

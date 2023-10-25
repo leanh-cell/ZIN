@@ -22,7 +22,7 @@ class _ProductItemState extends State<ProductItem> {
         Get.off(ProductDetailScreen(title: widget.title ?? "",));
       },
       child: Container(
-        // margin: EdgeInsets.only(left: 16,right: 16),
+        margin: EdgeInsets.only(bottom: 16),
         padding: EdgeInsets.only(left: 16, right: 16),
         child: Column(
           children: [

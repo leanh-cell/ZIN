@@ -37,22 +37,29 @@ class _OverviewReportScreenState extends State<OverviewReportScreen> {
         SizedBox(
           height: 20,
         ),
-        Container(
-          width: Get.width / 3.5,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: Color(0xFFD9D9D9),
+        Row(
+          children: [
+            Container(
+              // width: Get.width / 3.5,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: Color(0xFFD9D9D9),
+                ),
+              ),
+              child: Row(children: [
+                Text("Tháng này"),
+                SizedBox(
+                  width: 8,
+                ),
+                SvgPicture.asset("assets/icons/arrow_downward.svg")
+              ]),
             ),
-          ),
-          child: Row(children: [
-            Text("Tháng này"),
-            SizedBox(
-              width: 8,
-            ),
-            SvgPicture.asset("assets/icons/arrow_downward.svg")
-          ]),
+            Expanded(
+              flex: 2,
+               child: Container())
+          ],
         ),
         SizedBox(
           height: 20,

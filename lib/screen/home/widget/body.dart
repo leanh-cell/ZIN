@@ -130,7 +130,7 @@ class _WidgetBodyState extends State<WidgetBody> {
 
   Widget topPeople() {
     return Container(
-      height: Get.height / 2 - 50,
+      height: Get.height /2 +30,
       padding: EdgeInsets.only(left: 16, right: 16),
       child: Column(
         children: [
@@ -324,7 +324,7 @@ class _WidgetBodyState extends State<WidgetBody> {
               ...List.generate(8, (index) {
                 return Container(
                   // color: Colors.amber,
-                  width: (Get.width - (16 + 23)) / 2,
+                  width: (Get.width - (16 + 23)) / 2 ,
                   // height: 40,
                   child: Stack(children: [
                     Positioned(
@@ -332,7 +332,7 @@ class _WidgetBodyState extends State<WidgetBody> {
                       left: 13,
                       child: Container(
                         // height: Get.height ,
-                        width: (Get.width - (16 + 23)) / 2,
+                        width: (Get.width - (16 + 23)) / 2 - 13,
                         padding: EdgeInsets.only(left: 30),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),

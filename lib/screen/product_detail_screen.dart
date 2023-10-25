@@ -298,104 +298,101 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 17.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    "Số lượng",
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF696666)),
-                  ),
+                Text(
+                  "Số lượng",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF696666)),
                 ),
-                Expanded(
-                  // flex: 2,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 22,
-                        height: 20,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(4),
-                                bottomLeft: Radius.circular(4)),
-                            border: Border.all(color: Colors.grey)
-                            // border: Border(
-                            //   top: BorderSide(color: Colors.grey, width: 1),
-                            //   left: BorderSide(color: Colors.grey, width: 1),
-                            //   bottom: BorderSide(color: Colors.grey, width: 1),
-                            // ),
-                            ),
-                        child: Center(
-                          child: Container(
-                            height: 1,
-                            width: 4.67,
-                            color: Colors.black,
+                Row(
+                  children: [
+                    Container(
+                      width: 22,
+                      height: 20,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(4),
+                              bottomLeft: Radius.circular(4)),
+                          border: Border.all(color: Colors.grey)
+                          // border: Border(
+                          //   top: BorderSide(color: Colors.grey, width: 1),
+                          //   left: BorderSide(color: Colors.grey, width: 1),
+                          //   bottom: BorderSide(color: Colors.grey, width: 1),
+                          // ),
                           ),
+                      child: Center(
+                        child: Container(
+                          height: 1,
+                          width: 4.67,
+                          color: Colors.black,
                         ),
                       ),
-                      Container(
-                        width: 35,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          // borderRadius: BorderRadius.only(topLeft: Radius.circular(4),bottomLeft: Radius.circular(4)),
-                          // border: Border.all(color: Colors.grey)
-                          border: Border(
-                            top: BorderSide(color: Colors.grey, width: 1),
-                            // left: BorderSide(color: Colors.grey, width: 1),
-                            bottom: BorderSide(color: Colors.grey, width: 1),
+                    ),
+                    Container(
+                      width: 35,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        // borderRadius: BorderRadius.only(topLeft: Radius.circular(4),bottomLeft: Radius.circular(4)),
+                        // border: Border.all(color: Colors.grey)
+                        border: Border(
+                          top: BorderSide(color: Colors.grey, width: 1),
+                          // left: BorderSide(color: Colors.grey, width: 1),
+                          bottom: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                      ),
+                      child: Center(child: Text("240")),
+                    ),
+                    Container(
+                      width: 22,
+                      height: 20,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(4),
+                              bottomRight: Radius.circular(4)),
+                          border: Border.all(color: Colors.grey)
+                          // border: Border(
+                          //   top: BorderSide(color: Colors.grey, width: 1),
+                          //   left: BorderSide(color: Colors.grey, width: 1),
+                          //   bottom: BorderSide(color: Colors.grey, width: 1),
+                          // ),
                           ),
-                        ),
-                        child: Center(child: Text("240")),
-                      ),
-                      Container(
-                        width: 22,
-                        height: 20,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(4),
-                                bottomRight: Radius.circular(4)),
-                            border: Border.all(color: Colors.grey)
-                            // border: Border(
-                            //   top: BorderSide(color: Colors.grey, width: 1),
-                            //   left: BorderSide(color: Colors.grey, width: 1),
-                            //   bottom: BorderSide(color: Colors.grey, width: 1),
-                            // ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 9.5,
+                            left: 7,
+                            child: Container(
+                              height: 1,
+                              width: 4.67,
+                              color: Colors.black,
                             ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 9.5,
-                              left: 7,
-                              child: Container(
-                                height: 1,
-                                width: 4.67,
-                                color: Colors.black,
-                              ),
+                          ),
+                          Positioned(
+                            top: 7.5,
+                            left: 9,
+                            right: null,
+                            child: Container(
+                              height: 4.67,
+                              width: 1,
+                              color: Colors.black,
                             ),
-                            Positioned(
-                              top: 7.5,
-                              left: 9,
-                              right: null,
-                              child: Container(
-                                height: 4.67,
-                                width: 1,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      Text(
-                        "240" + " sản phẩm có sẵn",
-                        style:
-                            TextStyle(fontSize: 9, fontWeight: FontWeight.w400),
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      "240" + " sản phẩm có sẵn",
+                      style:
+                          TextStyle(fontSize: 9, fontWeight: FontWeight.w400),
+                    ),
+                    
+                  ],
                 ),
                 // Icon(Icons.arrow_back,size: 13,)
               ],
@@ -483,7 +480,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Expanded(
               child: Container(
                 padding:
-                    EdgeInsets.only(left: 14, top: 15, bottom: 15, right: 14),
+                    EdgeInsets.only(left: 14, top: 15, bottom: 15, right: 9),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Color(0xFFCF5763)),
@@ -493,12 +490,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     SizedBox(
                       width: 8,
                     ),
-                    Text(
-                      "THÊM VÀO GIỎ HÀNG",
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
+                    Expanded(
+                      child: Text(
+                        "THÊM VÀO GIỎ HÀNG",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
+                      ),
                     )
                   ],
                 ),

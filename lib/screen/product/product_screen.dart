@@ -21,35 +21,40 @@ class ProductScreen extends StatelessWidget {
       drawer: itemDrawer(),
       endDrawer: itemEndDrawer(context: context),
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(left: 16, top: 27),
         child: Column(children: [
-          Container(
-            margin: EdgeInsets.only(left: 16, right: 230, bottom: 15, top: 27),
-            padding: EdgeInsets.only(left: 17, top: 10, bottom: 10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.grey)),
-            child: Row(children: [
-              Text(
-                "Sắp xếp theo",
-                style: TextStyle(fontWeight: FontWeight.w400),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 17, top: 10, bottom: 10,right: 17),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.grey)),
+                child: Row(children: [
+                  Text(
+                    "Sắp xếp theo",
+                    style: TextStyle(fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  SvgPicture.asset(
+                    "assets/icons/arrow_downward.svg",
+                    // width: 10,
+                    // height: 6,
+                  )
+                ]),
               ),
-              SizedBox(
-                width: 8,
-              ),
-              SvgPicture.asset(
-                "assets/icons/arrow_downward.svg",
-                width: 10,
-                height: 6,
-              )
-            ]),
+              Expanded(
+                flex: 2,
+                child: Container())
+            ],
           ),
+          SizedBox(height: 17,),
           ...List.generate(
             10,
-            (index) => Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: ProductItem(
-                title: "product 1",
-              ),
+            (index) => ProductItem(
+              title: "product 1",
             ),
           ),
           SizedBox(

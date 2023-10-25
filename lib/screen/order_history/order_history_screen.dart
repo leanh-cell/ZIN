@@ -87,17 +87,20 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen>
           height: 8,
         ),
         Expanded(
-          child: ListView(physics: NeverScrollableScrollPhysics(), children: [
-            TabBar(
-              isScrollable: true,
-              controller: _tabController,
-              tabs: _tabs,
-              labelColor: Theme.of(context).primaryColor,
-              indicatorColor: Theme.of(context).primaryColor,
-              unselectedLabelColor: _unselectedColor,
-            ),
-          ]),
+          child: Container(
+            child: ListView(physics: NeverScrollableScrollPhysics(), children: [
+              TabBar(
+                isScrollable: true,
+                controller: _tabController,
+                tabs: _tabs,
+                labelColor: Theme.of(context).primaryColor,
+                indicatorColor: Theme.of(context).primaryColor,
+                unselectedLabelColor: _unselectedColor,
+              ),
+            ]),
+          ),
         ),
+        SizedBox(height: 17,),
         Expanded(
           flex: 9,
           child: TabBarView(
