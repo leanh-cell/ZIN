@@ -23,7 +23,7 @@ class _WidgetBodyState extends State<WidgetBody> {
     CommentCustomer(),
     CommentCustomer()
   ];
-  final _current = 0;
+  int _current = 0;
   final CarouselController _controller = CarouselController();
 
   @override
@@ -66,7 +66,11 @@ class _WidgetBodyState extends State<WidgetBody> {
                 enlargeCenterPage: false,
                 viewportFraction: 1,
                 aspectRatio: 14 / 7,
-                onPageChanged: (index, reason) {}),
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
