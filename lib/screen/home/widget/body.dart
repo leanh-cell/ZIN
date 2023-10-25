@@ -55,6 +55,9 @@ class _WidgetBodyState extends State<WidgetBody> {
               children: [Text("Khách hàng nói gì về chúng tôi")],
             ),
           ),
+          SizedBox(
+            height: 12,
+          ),
           CarouselSlider(
             items: list,
             carouselController: _controller,
@@ -62,7 +65,7 @@ class _WidgetBodyState extends State<WidgetBody> {
                 autoPlay: list.length <= 1 ? false : true,
                 enlargeCenterPage: false,
                 viewportFraction: 1,
-                aspectRatio: 16 / 6.5,
+                aspectRatio: 14 / 7,
                 onPageChanged: (index, reason) {}),
           ),
           Row(

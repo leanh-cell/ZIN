@@ -16,10 +16,12 @@ class _CommentCustomerState extends State<CommentCustomer> {
     return Container(
       margin: EdgeInsets.only(left: 16, right: 16),
       width: Get.width,
-      padding: EdgeInsets.only(left: 8, right: 8, top: 16),
+      padding: EdgeInsets.only(left: 8, right: 8, top: 16,bottom: 10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: Colors.white),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start, children: [
         SvgPicture.asset("assets/icons/comment.svg"),
         SizedBox(
           height: 8,
@@ -30,10 +32,16 @@ class _CommentCustomerState extends State<CommentCustomer> {
           maxLines: 4,
           overflow: TextOverflow.ellipsis,
         ),
+         SizedBox(
+              height: 8,
+            ),
         Row(
           children: [
             ClipRRect(
-              child: SvgPicture.asset("assets/icons/person.svg"),
+              borderRadius: BorderRadius.circular(40),
+              child: Container(
+                color: Colors.red,
+                child: SvgPicture.asset("assets/icons/person.svg")),
             ),
             SizedBox(
               width: 12,
