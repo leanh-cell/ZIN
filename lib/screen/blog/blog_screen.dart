@@ -81,9 +81,9 @@ class _BlogScreenState extends State<BlogScreen> with TickerProviderStateMixin {
                 //   unselectedLabelColor: _unselectedColor,
                 // ),
                 TabBar(
-              unselectedLabelStyle: TextStyle(
-                backgroundColor: Colors.white,
-              ),
+              // unselectedLabelStyle: TextStyle(
+              //   backgroundColor: Colors.white,
+              // ),
               isScrollable: false,
               controller: _tabController,
               tabs: _tabs,
@@ -102,8 +102,8 @@ class _BlogScreenState extends State<BlogScreen> with TickerProviderStateMixin {
             controller: _tabController,
             children: [
               allBlogPage(),
-              Center(child: Text('Màn hình 2')),
-              Center(child: Text('Màn hình 3')),
+              allBlogPage(),
+              allBlogPage(),
               // Center(child: Text('Màn hình 4')),
               // Center(child: Text('Màn hình 5')),
               // Center(child: Text('Màn hình 6')),
@@ -113,32 +113,40 @@ class _BlogScreenState extends State<BlogScreen> with TickerProviderStateMixin {
       ]),
     );
   }
-Widget allBlogPage(){
-  return Container(child: 
-  SingleChildScrollView(
-    padding: EdgeInsets.only(top: 20),
-    child: Column(children: [
-      itemBlog(),
-      itemBlog(),
-      itemBlog(),
-      itemBlog(),
-      itemBlog(),
-      itemBlog(),
-      itemBlog(),
-      itemBlog(),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Xem thêm",style: TextStyle(fontWeight: FontWeight.w500),),
-          SvgPicture.asset("assets/icons/see_more.svg")
-        ],
+
+  Widget allBlogPage() {
+    return Container(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.only(top: 20),
+        child: Column(children: [
+          itemBlog(),
+          itemBlog(),
+          itemBlog(),
+          itemBlog(),
+          itemBlog(),
+          itemBlog(),
+          itemBlog(),
+          itemBlog(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Xem thêm",
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              SvgPicture.asset("assets/icons/see_more.svg")
+            ],
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          SizedBox(
+            height: 60,
+          ),
+        ]),
       ),
-      SizedBox(height: 16,),
-      
-       SizedBox(height: 60,),
-    ]),
-  ),);
-}
+    );
+  }
 
   Widget itemBlog() {
     return Container(
@@ -189,16 +197,18 @@ Widget allBlogPage(){
             ],
           ),
         ),
-        SizedBox(height: 20,),
+        SizedBox(
+          height: 20,
+        ),
         Padding(
-          padding: const EdgeInsets.only(left:48.5,right: 48.5),
+          padding: const EdgeInsets.only(left: 48.5, right: 48.5),
           child: ButtonWidget(
-            onPressed: (){
+            onPressed: () {
               Get.to(BlogDetailScreen());
             },
             radius: 4,
             colorBorder: Colors.black,
-            contentpadding: EdgeInsets.only(top: 10,bottom: 10),
+            contentpadding: EdgeInsets.only(top: 10, bottom: 10),
             content: "Xem thêm",
             contentStyle: TextStyle(fontWeight: FontWeight.w500),
           ),

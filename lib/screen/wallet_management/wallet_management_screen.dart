@@ -293,11 +293,8 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
             controller: _tabController,
             children: [
               pageRose(),
-              Center(child: Text('Màn hình 2')),
-              Center(child: Text('Màn hình 3')),
-              // Center(child: Text('Màn hình 4')),
-              // Center(child: Text('Màn hình 5')),
-              // Center(child: Text('Màn hình 6')),
+              pageRose(),
+              pageRose(),
             ],
           ),
         )
@@ -463,14 +460,15 @@ class _WalletManagementScreenState extends State<WalletManagementScreen>
               color: Color(0xFF697A8D),
             ),
           ),
-          Divider(height: 30,)
+          Divider(
+            height: 30,
+          )
         ],
       ),
     );
   }
 
-
-Widget itemHistoryTSGD({required int status}) {
+  Widget itemHistoryTSGD({required int status}) {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -484,17 +482,20 @@ Widget itemHistoryTSGD({required int status}) {
                     "Trước GD: ",
                     style: TextStyle(fontSize: 12),
                   ),
-                  Text("3.000.000"+"đ",)
+                  Text(
+                    "3.000.000" + "đ",
+                  )
                 ],
               )),
-             status == 1 ?
-              Text(
-                "+" + "500.000",
-                style: TextStyle(color: Colors.green),
-              ):Text(
-                "-" + "500.000",
-                style: TextStyle(color: Colors.red),
-              )
+              status == 1
+                  ? Text(
+                      "+" + "500.000",
+                      style: TextStyle(color: Colors.green),
+                    )
+                  : Text(
+                      "-" + "500.000",
+                      style: TextStyle(color: Colors.red),
+                    )
             ],
           ),
           SizedBox(
@@ -509,14 +510,17 @@ Widget itemHistoryTSGD({required int status}) {
                     "Sau GD: ",
                     style: TextStyle(fontSize: 12),
                   ),
-                  Text("3.500.000"+"đ")
+                  Text("3.500.000" + "đ")
                 ],
               )),
               Row(
                 children: [
                   Text(
                     "08:29 - 24/12/2023",
-                    style: TextStyle(fontSize: 12,color: Color(0xFF697A8D),),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF697A8D),
+                    ),
                   ),
                   // Text("5.500.000" + "đ"),
                 ],
@@ -533,11 +537,11 @@ Widget itemHistoryTSGD({required int status}) {
               // color: Color(0xFF697A8D),
             ),
           ),
-          Divider(height: 30,)
+          Divider(
+            height: 30,
+          )
         ],
       ),
     );
   }
-
-
 }

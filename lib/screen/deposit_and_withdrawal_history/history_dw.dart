@@ -75,8 +75,8 @@ class _DepositAndWithdrawalHistoryState
             controller: _tabController,
             children: [
               itemHistory(),
-              Center(child: Text('Màn hình 2')),
-              Center(child: Text('Màn hình 3')),
+             itemHistory(),
+             itemHistory(),
             ],
           ),
         )
@@ -147,27 +147,25 @@ class _DepositAndWithdrawalHistoryState
               // flex: 2,
               child: Container(
                 padding:
-                    EdgeInsets.only(left: 23, top: 10, bottom: 10, right: 18),
+                    EdgeInsets.only(left: 23, top: 10, bottom: 10,right: 18),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: Color(0xFFD9D9D9))),
-                child: Center(
-                  child: Row(children: [
-                    Text("Nguồn giao dịch"),
-                    SizedBox(
-                      width: 8,
+                child: Row(children: [
+                  Expanded(child: Text("Nguồn giao dịch")),
+                  // SizedBox(
+                  //   width: 8,
+                  // ),
+                  SizedBox(
+                    width: 24,
+                    height: 24,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child:
+                          SvgPicture.asset("assets/icons/arrow_downward.svg"),
                     ),
-                    SizedBox(
-                      width: 24,
-                      height: 24,
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child:
-                            SvgPicture.asset("assets/icons/arrow_downward.svg"),
-                      ),
-                    )
-                  ]),
-                ),
+                  )
+                ]),
               ),
             ),
             SizedBox(

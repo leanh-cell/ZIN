@@ -45,7 +45,7 @@ class _BlogDetailScreenState extends State<BlogDetailScreen> {
             SizedBox(
               width: 8,
             ),
-            SvgPicture.asset("assets/icons/facebook2.svg"),
+            // SvgPicture.asset("assets/icons/facebook2.svg"),
             SvgPicture.asset("assets/icons/pinterest.svg"),
             SvgPicture.asset("assets/icons/twitter.svg")
           ],
